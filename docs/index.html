@@ -270,6 +270,27 @@ h3{letter-spacing:-.035em}
 @media(max-width:980px){.gallery-2026-grid{grid-template-columns:1fr 1fr}.gallery-2026-card:first-child{grid-column:1/-1}}
 @media(max-width:680px){.gallery-2026-grid{grid-template-columns:1fr}.gallery-2026-card:first-child{grid-column:auto}.gallery-2026-card{min-height:330px}}
 </style>
+
+<style id="albo-home-style">
+.albo-recent-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.albo-recent-card{position:relative;min-height:330px;border-radius:22px;overflow:hidden;background:#171923;border:1px solid rgba(0,0,0,.08);box-shadow:0 16px 40px rgba(25,25,30,.08);transition:.28s ease;color:white}
+.albo-recent-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(8,9,14,.88) 100%)}
+.albo-recent-card::before{content:"";position:absolute;inset:-2px;z-index:3;border-radius:inherit;pointer-events:none;opacity:0;box-shadow:inset 0 0 0 1px rgba(60,221,255,.62),inset 0 0 28px rgba(255,63,180,.14);transition:.28s}
+.albo-recent-card:hover{transform:translateY(-6px);box-shadow:0 0 28px rgba(60,221,255,.09),0 22px 48px rgba(25,25,30,.12)}
+.albo-recent-card:hover::before{opacity:1}
+.albo-recent-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.7s ease}
+.albo-recent-card:hover img{transform:scale(1.045)}
+.albo-year-bg{position:absolute;inset:0;display:grid;place-items:center;font-size:72px;font-weight:950;letter-spacing:-.07em;background:linear-gradient(135deg,#171923,#242030);color:rgba(255,255,255,.14)}
+.albo-recent-copy{position:absolute;left:20px;right:20px;bottom:18px;z-index:4}
+.albo-recent-copy small{display:block;color:#b8b5be;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px}
+.albo-recent-copy b{display:block;font-size:22px;line-height:1.05}
+.albo-recent-copy span{display:block;margin-top:7px;color:#d7d4dd;font-size:13px}
+.albo-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.albo-actions .btn-secondary-dark{background:#171923;color:white;border:1px solid #262a36}
+.hero-photo .hero-loading{position:absolute;inset:0;display:grid;place-items:center;color:#aaa7b0;font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;background:#11131a}
+@media(max-width:980px){.albo-recent-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.albo-recent-grid{grid-template-columns:1fr}.albo-recent-card{min-height:280px}}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -323,9 +344,9 @@ h3{letter-spacing:-.035em}
         </div>
       </div>
       <div class="hero-photo reveal">
-        <img src="https://www.festadeigiovani.com/wp-content/uploads/2025/04/IMG_4546-scaled.jpg" alt="Festa dei Giovani di Cavaglià" fetchpriority="high">
-        <div class="hero-photo-label">Festa dei Giovani ✦</div>
-        <div class="hero-badge"><strong>Una tradizione viva.</strong><span>Giovani di ieri e di oggi, insieme.</span></div>
+        <div class="hero-loading">Prima sera · 7 agosto 2026</div><img data-b64-src="assets/hero-prima-sera-2026.b64" alt="Gruppo e pubblico durante la prima sera della Festa dei Giovani 2026" fetchpriority="high">
+        <div class="hero-photo-label">Prima sera · 7 agosto 2026 ✦</div>
+        <div class="hero-badge"><strong>La Festa, da dentro.</strong><span>Una foto vera della prima sera della 508ª.</span></div>
       </div>
     </div>
   </div>
@@ -466,14 +487,37 @@ h3{letter-spacing:-.035em}
 
 <section class="section light-section" id="albo">
   <div class="container">
-    <div class="albo-head">
-      <div class="albo-visual reveal" role="img" aria-label="Foto del gruppo della Festa dei Giovani"></div>
-      <div class="albo-copy reveal">
+    <div class="section-head reveal">
+      <div>
         <div class="eyebrow" style="color:#8a49df">Albo dei Priori</div>
         <h2>Ogni anno, nuovi volti.<br>La stessa tradizione.</h2>
-        <p class="body-copy">L’Albo storico raccoglie i Priori che hanno guidato la Festa e, dove disponibili, le fotografie con i bambini e il gruppo dell’edizione. L’archivio storico completo dei nomi parte dal 1847.</p>
-        <div class="albo-placeholder"><strong>Archivio fotografico in preparazione.</strong><br>Stiamo organizzando fotografie e nominativi per trasformare l’Albo in una raccolta navigabile anno per anno, senza perdere la memoria delle edizioni passate.</div>
       </div>
+      <p class="section-copy">Ho iniziato a trasformare l'Albo storico in un vero archivio navigabile. Ogni edizione ha una scheda con Priore, Dedicato e Dedicata quando presenti nell'archivio, e lo spazio per le fotografie.</p>
+    </div>
+
+    <div class="albo-recent-grid">
+      <a class="albo-recent-card reveal" href="albo/dettaglio.html?anno=2026">
+        <div class="gallery-loading">Archivio 2026…</div>
+        <img data-b64-src="assets/albo-2026.b64" alt="Foto dall'archivio della 508ª Festa dei Giovani" loading="lazy">
+        <div class="albo-recent-copy"><small>508ª · 2026</small><b>Machieraldo Davide</b><span>Apri la scheda →</span></div>
+      </a>
+      <a class="albo-recent-card reveal" href="albo/dettaglio.html?anno=2025">
+        <div class="albo-year-bg">507ª</div>
+        <div class="albo-recent-copy"><small>507ª · 2025</small><b>Cavagnetto Eddie</b><span>Foto Priore + bambini in aggiornamento →</span></div>
+      </a>
+      <a class="albo-recent-card reveal" href="albo/dettaglio.html?anno=2024">
+        <div class="albo-year-bg">506ª</div>
+        <div class="albo-recent-copy"><small>506ª · 2024</small><b>Macchieraldo Giulio</b><span>Apri la scheda →</span></div>
+      </a>
+      <a class="albo-recent-card reveal" href="albo/dettaglio.html?anno=2023">
+        <div class="albo-year-bg">505ª</div>
+        <div class="albo-recent-copy"><small>505ª · 2023</small><b>Clerico Gloria</b><span>Apri la scheda →</span></div>
+      </a>
+    </div>
+
+    <div class="albo-actions reveal">
+      <a class="btn btn-primary" href="albo/">Apri l'Albo storico completo</a>
+      <a class="btn btn-secondary-dark" href="albo/dettaglio.html?anno=2026">Vai alla 508ª</a>
     </div>
   </div>
 </section>
@@ -546,7 +590,7 @@ document.querySelectorAll('.glow-card').forEach(card=>{
       const r=await fetch(img.dataset.b64Src,{cache:'force-cache'});
       const b64=(await r.text()).trim();
       img.src='data:image/jpeg;base64,'+b64;
-      img.addEventListener('load',()=>{const l=img.parentElement.querySelector('.gallery-loading');if(l)l.remove()},{once:true});
+      img.addEventListener('load',()=>{const l=img.parentElement.querySelector('.gallery-loading');if(l)l.remove();const h=img.parentElement.querySelector('.hero-loading');if(h)h.remove()},{once:true});
     }catch(e){
       const l=img.parentElement.querySelector('.gallery-loading');
       if(l)l.textContent='Foto non disponibile';
