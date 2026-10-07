@@ -255,6 +255,21 @@ h3{letter-spacing:-.035em}
 }
 </style>
 
+
+<style>
+.gallery-2026-grid{display:grid;grid-template-columns:1.15fr .85fr .85fr;gap:14px}
+.gallery-2026-card{position:relative;min-height:390px;border-radius:28px;overflow:hidden;background:#171923;border:1px solid rgba(255,255,255,.1);box-shadow:var(--shadow);transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease}
+.gallery-2026-card::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,transparent 45%,rgba(4,5,10,.84) 100%)}
+.gallery-2026-card::after{content:"";position:absolute;inset:-2px;z-index:3;pointer-events:none;border-radius:inherit;opacity:0;box-shadow:inset 0 0 0 1px rgba(60,221,255,.6),inset 0 0 28px rgba(255,63,180,.11);transition:opacity .28s ease}
+.gallery-2026-card:hover{transform:translateY(-6px);border-color:rgba(60,221,255,.45);box-shadow:0 0 30px rgba(60,221,255,.1),0 24px 55px rgba(0,0,0,.24)}
+.gallery-2026-card:hover::after{opacity:1}
+.gallery-2026-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.gallery-2026-card:hover img{transform:scale(1.045)}
+.gallery-2026-card .gallery-caption{z-index:4}
+.gallery-loading{position:absolute;inset:0;display:grid;place-items:center;color:#8f8c96;font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+@media(max-width:980px){.gallery-2026-grid{grid-template-columns:1fr 1fr}.gallery-2026-card:first-child{grid-column:1/-1}}
+@media(max-width:680px){.gallery-2026-grid{grid-template-columns:1fr}.gallery-2026-card:first-child{grid-column:auto}.gallery-2026-card{min-height:330px}}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -404,6 +419,33 @@ h3{letter-spacing:-.035em}
   </div>
 </section>
 
+
+<section class="section" id="foto-2026">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">Gallery 2026</div><h2>La 508ª, <span class="neon-word">da dentro.</span></h2></div>
+      <p class="section-copy">Foto vere dell’edizione 2026: non solo palco e programma, ma le persone, il bar, la cucina e quei momenti spontanei che fanno davvero la Festa.</p>
+    </div>
+    <div class="gallery-2026-grid">
+      <article class="gallery-2026-card reveal">
+        <div class="gallery-loading">Caricamento foto 2026…</div>
+        <img data-b64-src="assets/fdg2026-serata.b64" alt="Momento di festa durante la 508ª Festa dei Giovani" loading="lazy">
+        <div class="gallery-caption"><b>Dentro la serata</b><span>508ª Festa dei Giovani · 2026</span></div>
+      </article>
+      <article class="gallery-2026-card reveal">
+        <div class="gallery-loading">Caricamento foto 2026…</div>
+        <img data-b64-src="assets/fdg2026-amiche.b64" alt="Persone alla Festa dei Giovani 2026" loading="lazy">
+        <div class="gallery-caption"><b>Le persone</b><span>La Festa è soprattutto questo.</span></div>
+      </article>
+      <article class="gallery-2026-card reveal">
+        <div class="gallery-loading">Caricamento foto 2026…</div>
+        <img data-b64-src="assets/fdg2026-cucina.b64" alt="Cucina della Festa dei Giovani 2026" loading="lazy">
+        <div class="gallery-caption"><b>Dietro le quinte</b><span>La cucina e chi la fa funzionare.</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="storia">
   <div class="container">
     <div class="history-wrap reveal">
@@ -492,6 +534,29 @@ document.querySelectorAll('.glow-card').forEach(card=>{
     card.style.setProperty('--my',`${e.clientY-r.top}px`);
   });
 });
+</script>
+
+<script>
+(function(){
+  const imgs=[...document.querySelectorAll('img[data-b64-src]')];
+  const loadImg=async(img)=>{
+    if(img.dataset.loaded)return;
+    img.dataset.loaded='1';
+    try{
+      const r=await fetch(img.dataset.b64Src,{cache:'force-cache'});
+      const b64=(await r.text()).trim();
+      img.src='data:image/jpeg;base64,'+b64;
+      img.addEventListener('load',()=>{const l=img.parentElement.querySelector('.gallery-loading');if(l)l.remove()},{once:true});
+    }catch(e){
+      const l=img.parentElement.querySelector('.gallery-loading');
+      if(l)l.textContent='Foto non disponibile';
+    }
+  };
+  if('IntersectionObserver' in window){
+    const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){loadImg(e.target);obs.unobserve(e.target)}}),{rootMargin:'350px 0px'});
+    imgs.forEach(i=>obs.observe(i));
+  } else imgs.forEach(loadImg);
+})();
 </script>
 </body>
 </html>
