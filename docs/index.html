@@ -1,124 +1,497 @@
 <!doctype html>
 <html lang="it">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#f7f4ff">
-  <meta name="description" content="Sito ufficiale della Festa dei Giovani di Cavaglià: storia, programma, cucina, foto e albo storico.">
-  <title>Festa dei Giovani di Cavaglià</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Unbounded:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0b10">
+<title>Festa dei Giovani di Cavaglià</title>
+<meta name="description" content="Festa dei Giovani di Cavaglià: una tradizione dal 1518. Programma, cucina, storia, albo dei Priori, foto e contatti.">
+<style>
+:root{
+  --night:#090a0f; --night2:#11131a; --ink:#15161a; --paper:#f7f4ef;
+  --white:#fff; --muted:#6c6b71; --line:rgba(255,255,255,.13);
+  --pink:#ff3fb4; --cyan:#3cddff; --violet:#875cff; --gold:#ffd35b;
+  --radius:26px; --shadow:0 24px 70px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--night);color:#f7f7f7;overflow-x:hidden;
+}
+body.menu-open{overflow:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+button{font:inherit}
+.container{width:min(1180px,calc(100% - 36px));margin:auto}
+.muted{color:#a7a5ad}
+.light-section{background:var(--paper);color:var(--ink)}
+.light-section .section-copy,.light-section .body-copy{color:#646167}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:900;color:var(--cyan)}
+h1,h2,h3,p{margin-top:0}
+h1{font-size:clamp(54px,8vw,104px);line-height:.9;letter-spacing:-.065em;margin-bottom:24px}
+h2{font-size:clamp(38px,5vw,66px);line-height:.98;letter-spacing:-.05em;margin-bottom:14px}
+h3{letter-spacing:-.035em}
+.section{padding:92px 0}
+.section-head{display:flex;justify-content:space-between;gap:34px;align-items:end;margin-bottom:34px}
+.section-copy{max-width:600px;line-height:1.75;color:#bbb8c0;font-size:16px}
+.body-copy{line-height:1.8;color:#c4c1c8}
+.neon-word{
+  color:#fff;
+  text-shadow:0 0 12px rgba(255,63,180,.65),0 0 28px rgba(60,221,255,.25);
+}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:none}
+
+/* nav */
+.site-header{
+  position:sticky;top:0;z-index:100;background:rgba(9,10,15,.72);
+  backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)
+}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;min-width:0}
+.brand-logo{
+  width:46px;height:46px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 0 18px rgba(60,221,255,.18);background:#0d1a4a
+}
+.brand-logo img{width:100%;height:100%;object-fit:cover;object-position:34% 28%;transform:scale(1.34)}
+.brand-title{white-space:nowrap}
+.nav-links{display:flex;gap:22px;align-items:center;font-size:14px;font-weight:800}
+.nav-links a{color:#d8d7db;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:-8px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--pink));transition:.25s}
+.nav-links a:hover::after{right:0}
+.menu-btn{display:none;border:0;color:white;background:#171923;width:44px;height:44px;border-radius:13px}
+
+/* ticker */
+.ticker{overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06);background:#0c0d13}
+.ticker-track{
+  width:max-content;display:flex;gap:34px;padding:12px 0;white-space:nowrap;
+  text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:900;color:#dad7de;
+  animation:ticker 28s linear infinite
+}
+.ticker-track span::before{content:"✦";color:var(--pink);margin-right:34px;text-shadow:0 0 12px var(--pink)}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* hero */
+.hero{position:relative;padding:26px 0 86px;isolation:isolate;overflow:hidden}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(2px);z-index:-1}
+.hero::before{width:480px;height:480px;left:-240px;top:100px;background:radial-gradient(circle,rgba(255,63,180,.18),transparent 65%)}
+.hero::after{width:520px;height:520px;right:-220px;top:-70px;background:radial-gradient(circle,rgba(60,221,255,.14),transparent 64%)}
+.light-wire{display:flex;justify-content:space-around;padding:8px 6px 25px}
+.bulb{width:11px;height:11px;border-radius:50%;position:relative;animation:twinkle 3.5s ease-in-out infinite}
+.bulb::before{content:"";position:absolute;width:3px;height:8px;left:4px;top:-7px;border-radius:3px;background:#555}
+.bulb:nth-child(4n+1){background:var(--pink);box-shadow:0 0 15px var(--pink),0 0 28px rgba(255,63,180,.35)}
+.bulb:nth-child(4n+2){background:var(--cyan);box-shadow:0 0 15px var(--cyan),0 0 28px rgba(60,221,255,.32)}
+.bulb:nth-child(4n+3){background:var(--gold);box-shadow:0 0 15px var(--gold),0 0 28px rgba(255,211,91,.28)}
+.bulb:nth-child(4n){background:var(--violet);box-shadow:0 0 15px var(--violet),0 0 28px rgba(135,92,255,.3)}
+.bulb:nth-child(2n){animation-delay:.8s}.bulb:nth-child(3n){animation-delay:1.6s}
+@keyframes twinkle{0%,100%{opacity:1;transform:translateY(0)}50%{opacity:.55;transform:translateY(2px)}}
+.hero-grid{display:grid;grid-template-columns:.93fr 1.07fr;gap:46px;align-items:center}
+.hero-copy{padding:16px 0}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);padding:9px 13px;border-radius:999px;font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase
+}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 12px var(--pink)}
+.hero-lead{font-size:19px;line-height:1.7;color:#c8c5cd;max-width:650px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{min-height:52px;padding:0 20px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:14px;font-weight:900;transition:.22s}
+.btn-primary{background:linear-gradient(135deg,var(--pink),var(--violet));color:white;box-shadow:0 14px 35px rgba(255,63,180,.22)}
+.btn-ghost{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);color:white}
+.btn:hover{transform:translateY(-2px)}
+.hero-photo{
+  min-height:625px;border-radius:28px 70px 28px 28px;overflow:hidden;position:relative;box-shadow:var(--shadow);
+  border:1px solid rgba(255,255,255,.12);background:#111
+}
+.hero-photo img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center 18%;transform:scale(1.03);animation:slowZoom 16s ease-in-out infinite alternate}
+@keyframes slowZoom{to{transform:scale(1.10)}}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(6,7,11,.82) 100%)}
+.hero-photo-label{position:absolute;z-index:2;right:20px;top:20px;border:1px solid rgba(255,255,255,.18);background:rgba(10,10,15,.45);backdrop-filter:blur(12px);padding:10px 14px;border-radius:999px;font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.hero-badge{
+  position:absolute;z-index:2;left:24px;bottom:22px;max-width:330px
+}
+.hero-badge strong{display:block;font-size:38px;letter-spacing:-.05em;line-height:1}
+.hero-badge span{display:block;color:#dad7df;margin-top:7px;font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:30px}
+.stat{border:1px solid rgba(255,255,255,.11);background:rgba(255,255,255,.055);border-radius:19px;padding:20px}
+.stat b{display:block;font-size:28px;letter-spacing:-.04em}.stat span{display:block;margin-top:6px;color:#aaa7b0;font-size:12px;line-height:1.35}
+
+/* dynamic glow cards */
+.glow-card{
+  --mx:50%;--my:50%;position:relative;overflow:hidden;border-radius:var(--radius);
+  border:1px solid rgba(255,255,255,.10);background:#151720;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.glow-card::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .25s;
+  background:radial-gradient(300px circle at var(--mx) var(--my),rgba(60,221,255,.15),transparent 48%),
+             radial-gradient(260px circle at calc(var(--mx) + 10%) calc(var(--my) - 10%),rgba(255,63,180,.13),transparent 55%);
+}
+.glow-card:hover,.glow-card:focus-within{
+  transform:translateY(-5px);border-color:rgba(60,221,255,.48);
+  box-shadow:0 0 0 1px rgba(255,63,180,.12),0 0 26px rgba(60,221,255,.12),0 22px 55px rgba(0,0,0,.2)
+}
+.glow-card:hover::before,.glow-card:focus-within::before{opacity:1}
+.light-section .glow-card{background:#fff;border-color:rgba(17,18,22,.09)}
+.light-section .glow-card:hover,.light-section .glow-card:focus-within{border-color:rgba(70,130,220,.35);box-shadow:0 0 0 1px rgba(255,63,180,.08),0 0 24px rgba(60,221,255,.10),0 20px 45px rgba(26,26,30,.08)}
+
+/* next edition */
+.priorato-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.person-card{padding:27px}
+.role{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:900;color:var(--cyan)}
+.light-section .role{color:#7b3fe4}
+.person-name{font-size:30px;margin:11px 0 8px}
+.person-card p{margin:0;color:#aaa7b0;line-height:1.7}
+.light-section .person-card p{color:#6b676f}
+.next-banner{margin-top:18px;padding:20px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.next-banner strong{font-size:20px}.next-banner span{color:#aaa7b0;font-size:14px}
+
+/* archive program */
+.program-intro{display:grid;grid-template-columns:.65fr 1.35fr;gap:22px;margin-bottom:24px}
+.poster-card{min-height:450px;background:url("https://www.festadeigiovani.com/wp-content/uploads/2025/04/IMG_4561-scaled.jpg") center/cover;border-radius:var(--radius);box-shadow:0 18px 50px rgba(0,0,0,.14)}
+.program-note{padding:30px;display:flex;flex-direction:column;justify-content:center}
+.program-note h3{font-size:36px;line-height:1;margin-bottom:14px}
+.program-note p{line-height:1.75;margin-bottom:0}
+.event-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.event-card{padding:22px;min-height:160px}
+.event-date{font-size:12px;letter-spacing:.13em;text-transform:uppercase;font-weight:900;color:#9a45e4}
+.event-title{font-size:22px;margin:9px 0 8px}
+.event-card p{font-size:14px;line-height:1.62;color:#66626a;margin:0}
+.event-card .ticket{display:inline-flex;margin-top:12px;padding:7px 10px;border-radius:999px;background:#181922;color:white;font-size:11px;font-weight:900;letter-spacing:.06em}
+
+/* food */
+.food-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.food-card{padding:22px;min-height:150px}
+.food-no{font-size:11px;color:var(--pink);font-weight:900;letter-spacing:.14em}
+.food-card h3{font-size:20px;margin:15px 0 5px}
+.food-card p{font-size:13px;color:#aaa7b0;line-height:1.55;margin:0}
+
+/* gallery */
+.gallery-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}
+.gallery-main,.gallery-side{min-height:470px;border-radius:28px;overflow:hidden;position:relative;box-shadow:var(--shadow)}
+.gallery-main img,.gallery-side img{width:100%;height:100%;object-fit:cover}
+.gallery-main img{object-position:center 26%}.gallery-side img{object-position:center 26%}
+.gallery-main::after,.gallery-side::after{content:"";position:absolute;inset:auto 0 0;height:48%;background:linear-gradient(180deg,transparent,rgba(0,0,0,.7))}
+.gallery-caption{position:absolute;left:20px;bottom:18px;z-index:2}
+.gallery-caption b{display:block;font-size:22px}.gallery-caption span{display:block;color:#d6d3da;font-size:13px;margin-top:5px}
+
+/* history */
+.history-wrap{display:grid;grid-template-columns:.72fr 1.28fr;gap:44px;align-items:start}
+.year{font-size:clamp(86px,12vw,160px);font-weight:950;letter-spacing:-.08em;line-height:.8;color:white;text-shadow:0 0 18px rgba(255,63,180,.35),0 0 34px rgba(60,221,255,.15)}
+.history-text{font-size:17px;line-height:1.9;color:#c8c5cc}
+.history-points{display:grid;gap:10px;margin-top:24px}
+.history-point{display:flex;gap:14px;align-items:flex-start;padding:15px 0;border-top:1px solid rgba(255,255,255,.1)}
+.history-point b{min-width:92px;color:var(--cyan)}
+
+/* albo */
+.albo-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:34px;align-items:center}
+.albo-visual{min-height:420px;border-radius:28px;overflow:hidden;position:relative;background:url("https://www.festadeigiovani.com/wp-content/uploads/2025/04/IMG_4537-scaled.jpg") center/cover;box-shadow:0 18px 48px rgba(0,0,0,.12)}
+.albo-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(11,12,18,.55))}
+.albo-copy{padding:8px 0}
+.albo-copy p{line-height:1.8}
+.albo-placeholder{margin-top:18px;padding:18px;border-radius:18px;background:#fff;border:1px solid rgba(0,0,0,.08);color:#5f5b62;font-size:14px;line-height:1.6}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.contact-card{padding:28px}
+.contact-card h3{font-size:34px;margin-bottom:12px}
+.contact-list{margin-top:18px}
+.contact-row{display:flex;justify-content:space-between;gap:15px;padding:14px 0;border-top:1px solid rgba(255,255,255,.11)}
+.contact-row a{font-weight:900}
+.socials{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.socials a{padding:10px 13px;border:1px solid rgba(255,255,255,.12);border-radius:999px;font-size:13px;font-weight:900}
+.map-card{min-height:380px;position:relative;background:url("https://www.festadeigiovani.com/wp-content/uploads/2025/04/IMG_4577-scaled.jpg") center/cover}
+.map-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,10,15,.18),rgba(9,10,15,.85))}
+.map-copy{position:absolute;z-index:2;left:28px;right:28px;bottom:26px}
+.map-copy h3{font-size:36px;margin-bottom:8px}
+.footer{padding:34px 0 50px;color:#8f8d95;font-size:13px;border-top:1px solid rgba(255,255,255,.08)}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+@media(max-width:980px){
+  .nav-links{display:none;position:fixed;inset:76px 14px auto 14px;background:#12131b;border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:20px;flex-direction:column;align-items:flex-start;box-shadow:var(--shadow)}
+  .nav-links.open{display:flex}.menu-btn{display:block}
+  .hero-grid,.program-intro,.history-wrap,.albo-head,.contact-grid{grid-template-columns:1fr}
+  .hero-photo{min-height:500px;order:-1}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .priorato-grid{grid-template-columns:1fr}
+  .food-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{grid-template-columns:1fr}
+  .gallery-main,.gallery-side{min-height:360px}
+  .albo-visual{min-height:360px}
+}
+@media(max-width:680px){
+  .container{width:min(100% - 22px,1180px)}
+  .section{padding:64px 0}.section-head{flex-direction:column;align-items:flex-start}
+  .hero{padding-top:15px;padding-bottom:62px}
+  .hero h1{font-size:53px}.hero-lead{font-size:17px}
+  .hero-photo{min-height:390px;border-radius:20px 38px 20px 20px}
+  .hero-photo-label{right:14px;top:14px}
+  .hero-badge{left:18px;bottom:18px}.hero-badge strong{font-size:31px}
+  .stats{grid-template-columns:1fr 1fr}.stat{padding:16px}.stat b{font-size:24px}
+  .event-grid{grid-template-columns:1fr}.event-card{min-height:auto}
+  .food-grid{grid-template-columns:1fr 1fr}.food-card{min-height:130px;padding:18px}
+  .next-banner{align-items:flex-start;flex-direction:column}
+  .gallery-main,.gallery-side{min-height:300px}
+  .year{font-size:92px}
+  .albo-visual{min-height:300px}
+  .contact-card{padding:22px}.map-copy{left:22px;right:22px;bottom:22px}
+  .brand-title{font-size:14px}
+}
+@media(max-width:390px){
+  .hero h1{font-size:47px}.stats{grid-template-columns:1fr}
+  .food-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+}
+</style>
+
+<style>
+.hero-photo{background:linear-gradient(135deg,#151723,#0b1730)}
+.poster-card{background-color:#17213b}
+.gallery-main,.gallery-side,.albo-visual,.map-card{background-color:#1a1b24}
+@media (hover:none){
+  .glow-card::before{opacity:.32}
+  .glow-card{border-color:rgba(60,221,255,.16)}
+}
+</style>
+
 </head>
 <body>
-  <div class="ambient ambient-a"></div>
-  <div class="ambient ambient-b"></div>
-
-  <header class="site-header" id="top">
+<header class="site-header">
+  <div class="container nav">
     <a class="brand" href="#home" aria-label="Festa dei Giovani - Home">
-      <span class="brand-mark">FDG</span>
-      <span class="brand-copy"><strong>Festa dei Giovani</strong><small>Cavaglià · dal 1518</small></span>
+      <span class="brand-logo" aria-hidden="true" style="display:grid;place-items:center;font-weight:950;letter-spacing:-.06em;background:linear-gradient(135deg,#ff3fb4,#875cff);color:white;">FG</span>
+      <span class="brand-title">Festa dei Giovani · Cavaglià</span>
     </a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
-    <nav id="main-nav" class="main-nav">
-      <a href="#storia">Storia</a>
-      <a href="#programma">Programma</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#edizione">509ª</a>
+      <a href="#programma">508ª</a>
       <a href="#cucina">Cucina</a>
+      <a href="#storia">Storia</a>
       <a href="#albo">Albo</a>
-      <a href="#foto">Foto</a>
       <a href="#contatti">Contatti</a>
     </nav>
-  </header>
+    <button class="menu-btn" id="menuBtn" aria-label="Apri menu">☰</button>
+  </div>
+</header>
 
-  <main>
-    <section class="hero" id="home">
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Festa dei Giovani</span><span>Cavaglià</span><span>dal 1518</span><span>musica</span><span>cucina</span><span>tradizione</span><span>amicizia</span>
+    <span>Festa dei Giovani</span><span>Cavaglià</span><span>dal 1518</span><span>musica</span><span>cucina</span><span>tradizione</span><span>amicizia</span>
+  </div>
+</div>
+
+<main id="home">
+<section class="hero">
+  <div class="container">
+    <div class="light-wire" aria-hidden="true">
+      <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+      <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+      <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+      <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+    </div>
+    <div class="hero-grid">
       <div class="hero-copy reveal">
-        <p class="eyebrow">CAVAGLIÀ · BIELLA</p>
-        <h1>Una tradizione di <span>oltre 500 anni</span>. Sempre giovane.</h1>
-        <p class="lead">Musica, cucina, amicizia e storia: la Festa dei Giovani riunisce ogni estate generazioni diverse nel cuore di Cavaglià.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#programma">Scopri la Festa</a>
-          <a class="btn ghost" href="#albo">Albo storico</a>
+        <div class="hero-kicker"><span class="live-dot"></span>Cavaglià · dal 1518</div>
+        <h1>La nostra storia.<br><span class="neon-word">Le vostre notti.</span></h1>
+        <p class="hero-lead">Una festa, tante generazioni. Musica, buona cucina, tradizioni e la voglia di ritrovarsi. Da oltre cinque secoli.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#edizione">Verso la 509ª ↓</a>
+          <a class="btn btn-ghost" href="#programma">Rivivi la 508ª</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>1518</b><span>nasce la tradizione</span></div>
+          <div class="stat"><b>508ª</b><span>edizione celebrata nel 2026</span></div>
+          <div class="stat"><b>30+</b><span>giovani nel comitato</span></div>
+          <div class="stat"><b>10+ giorni</b><span>ogni estate a Cavaglià</span></div>
         </div>
       </div>
-      <div class="hero-visual reveal" aria-hidden="true">
-        <div class="orb orb-1"></div><div class="orb orb-2"></div>
-        <div class="year-card"><span>dal</span><strong>1518</strong><small>una storia che continua</small></div>
+      <div class="hero-photo reveal">
+        <img src="https://www.festadeigiovani.com/wp-content/uploads/2025/04/IMG_4546-scaled.jpg" alt="Festa dei Giovani di Cavaglià" fetchpriority="high">
+        <div class="hero-photo-label">Festa dei Giovani ✦</div>
+        <div class="hero-badge"><strong>Una tradizione viva.</strong><span>Giovani di ieri e di oggi, insieme.</span></div>
       </div>
-      <a class="scroll-cue" href="#storia" aria-label="Scorri alla sezione successiva">↓</a>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section class="section intro" id="storia">
-      <div class="section-heading reveal">
-        <p class="eyebrow">LA NOSTRA STORIA</p>
-        <h2>Da più di cinque secoli, una festa della comunità.</h2>
-      </div>
-      <div class="history-grid">
-        <article class="glass-card reveal"><span class="number">1518</span><h3>Le origini</h3><p>La Festa dei Giovani di Cavaglià nasce nel 1518, autorizzata dal Duca Carlo III di Savoia, con la figura dell'Abate, oggi Priore.</p></article>
-        <article class="glass-card reveal"><span class="number">500+</span><h3>Anni di tradizione</h3><p>La manifestazione si è evoluta nei secoli mantenendo vivo il legame tra giovani, comunità e tradizioni del paese.</p></article>
-        <article class="glass-card reveal"><span class="number">30</span><h3>Giovani volontari</h3><p>Ogni anno un comitato di circa trenta giovani under 30 organizza dieci giorni di festa, cucina, musica e incontri.</p></article>
-      </div>
-    </section>
+<section class="section" id="edizione">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">Prossima edizione</div><h2>Verso la <span class="neon-word">509ª</span>.</h2></div>
+      <p class="section-copy">Il passaggio di consegne apre un nuovo capitolo. La prossima edizione arriverà nell’estate 2027: date, serate e programma definitivo saranno pubblicati qui appena disponibili.</p>
+    </div>
+    <div class="priorato-grid">
+      <article class="glow-card person-card reveal">
+        <div class="role">Priore</div><h3 class="person-name">Piero Favalli</h3>
+        <p>Guida il Priorato e coordina l’organizzazione generale della Festa.</p>
+      </article>
+      <article class="glow-card person-card reveal">
+        <div class="role">Sottopriora</div><h3 class="person-name">Sonia Nicolello</h3>
+        <p>Segue la cucina, lo stand gastronomico e l’organizzazione delle cene.</p>
+      </article>
+      <article class="glow-card person-card reveal">
+        <div class="role">Prima Assistente</div><h3 class="person-name">Ginevra Pozzato</h3>
+        <p>Responsabile del bar, delle bevande e dell’operatività delle serate.</p>
+      </article>
+    </div>
+    <div class="glow-card next-banner reveal">
+      <strong>509ª Festa dei Giovani · Estate 2027</strong>
+      <span>Programma in preparazione · torna qui per tutte le novità.</span>
+    </div>
+  </div>
+</section>
 
-    <section class="section roles">
-      <div class="section-heading reveal"><p class="eyebrow">LE CARICHE</p><h2>Tre ruoli, una sola squadra.</h2></div>
-      <div class="roles-grid">
-        <article class="role-card reveal"><span>01</span><h3>Priore</h3><p>Il cuore dell'organizzazione: coordina e supervisiona le attività della Festa.</p></article>
-        <article class="role-card reveal"><span>02</span><h3>Sottopriore</h3><p>Segue la cucina e l'organizzazione delle cene e delle serate gastronomiche.</p></article>
-        <article class="role-card reveal"><span>03</span><h3>Primo Assistente</h3><p>Responsabile della gestione dei bar e delle bevande durante la manifestazione.</p></article>
-      </div>
-    </section>
+<section class="section light-section" id="programma">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow" style="color:#8a49df">Archivio 2026</div><h2>La 508ª, sera per sera.</h2></div>
+      <p class="section-copy">Dal 7 al 17 agosto 2026: undici giornate tra musica, stand gastronomico, tradizione e grandi serate. Qui resta l’archivio completo dell’edizione appena conclusa.</p>
+    </div>
 
-    <section class="section program" id="programma">
-      <div class="program-panel reveal">
-        <div>
-          <p class="eyebrow">PROSSIMA EDIZIONE</p>
-          <h2>Il programma completo sarà pubblicato qui.</h2>
-          <p>Serate, musica, cucina, orari e tutte le informazioni utili verranno aggiornate appena definite.</p>
+    <div class="program-intro">
+      <div class="poster-card reveal" role="img" aria-label="Locandina della 508ª Festa dei Giovani"></div>
+      <div class="glow-card program-note reveal">
+        <div class="eyebrow" style="color:#8a49df">508ª edizione</div>
+        <h3>7 → 17 agosto 2026</h3>
+        <p class="body-copy">Stand gastronomico dalle 19:30. Musica e spettacoli dalle 22:00. Due serate speciali erano a pagamento con consumazione inclusa; le altre serate erano a ingresso libero.</p>
+      </div>
+    </div>
+
+    <div class="event-grid">
+      <article class="glow-card event-card reveal"><div class="event-date">Venerdì 7 agosto</div><h3 class="event-title">Palloncini + Party a 90</h3><p>Ore 22:00 distribuzione dei palloncini. A seguire Party a 90 con Gigi D’Agostino Tribute.</p></article>
+      <article class="glow-card event-card reveal"><div class="event-date">Sabato 8 agosto</div><h3 class="event-title">Radio Piterpan + Matt Joe</h3><p>Ore 19:30 apertura stand con menu alla carta. Dalle 22:00 Radio Piterpan, gadget e DJ set di Matt Joe.</p></article>
+      <article class="glow-card event-card reveal"><div class="event-date">Domenica 9 agosto</div><h3 class="event-title">Panissa + Giuliano e i Baroni</h3><p>Panissa su prenotazione dalle 19:30. Dalle 22:00 live di Giuliano e i Baroni, poi DJ Linz.</p></article>
+      <article class="glow-card event-card reveal"><div class="event-date">Lunedì 10 agosto</div><h3 class="event-title">DJ Antoine + Matteo Dianti</h3><p>Pollo fritto su prenotazione. Grande serata dalle 22:00.</p><span class="ticket">10 € · consumazione inclusa</span></article>
+      <article class="glow-card event-card reveal"><div class="event-date">Martedì 11 agosto</div><h3 class="event-title">Paella + Radio Gran Paradiso</h3><p>Paella su prenotazione dalle 19:30 e serata di musica e animazione con Radio Gran Paradiso.</p></article>
+      <article class="glow-card event-card reveal"><div class="event-date">Mercoledì 12 agosto</div><h3 class="event-title">Carbonara + I Roeri</h3><p>Carbonara dalle 19:30. Serata danzante con I Roeri e, a seguire, DJ Mattek.</p></article>
+      <article class="glow-card event-card reveal"><div class="event-date">Giovedì 13 agosto</div><h3 class="event-title">Gnocco fritto + Explosion</h3><p>Gnocco fritto su prenotazione. Dalle 22:00 Explosion, poi ICO DJ.</p></article>
+      <article class="glow-card event-card reveal"><div class="event-date">Venerdì 14 agosto</div><h3 class="event-title">Paella + Zarro Night</h3><p>Paella dalle 19:30. Dalle 22:00 serata evento Zarro Night.</p><span class="ticket">10 € · consumazione inclusa</span></article>
+      <article class="glow-card event-card reveal"><div class="event-date">Sabato 15 agosto</div><h3 class="event-title">Ferragosto + Skar & Manfree</h3><p>Stand con menu alla carta dalle 19:30 e live di Skar & Manfree dalle 22:00.</p></article>
+      <article class="glow-card event-card reveal"><div class="event-date">Domenica 16 agosto</div><h3 class="event-title">Cena Ex Priori + Lori Gallo</h3><p>Cena Ex Priori su prenotazione, serata danzante e tradizionale passaggio delle consegne.</p></article>
+      <article class="glow-card event-card reveal"><div class="event-date">Lunedì 17 agosto</div><h3 class="event-title">Svuotiamo il Bar Palatucci</h3><p>Chiusura della Festa dalle 21:00 e serata PROMO al Luna Park.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="cucina">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">A tavola</div><h2>Prima si mangia.<br>Poi si balla.</h2></div>
+      <p class="section-copy">Il punto di ritrovo è il Polivalente: una cucina di festa, tra piatti della tradizione, specialità e serate a tema. Le proposte cambiano con il programma di ogni edizione.</p>
+    </div>
+    <div class="food-grid">
+      <article class="glow-card food-card reveal"><div class="food-no">01</div><h3>Paella</h3><p>Una delle serate più attese della Festa.</p></article>
+      <article class="glow-card food-card reveal"><div class="food-no">02</div><h3>Panissa</h3><p>Tradizione piemontese, da condividere.</p></article>
+      <article class="glow-card food-card reveal"><div class="food-no">03</div><h3>Carbonara</h3><p>Una serata interamente dedicata.</p></article>
+      <article class="glow-card food-card reveal"><div class="food-no">04</div><h3>Gnocco fritto</h3><p>Da gustare allo stand gastronomico.</p></article>
+      <article class="glow-card food-card reveal"><div class="food-no">05</div><h3>Fritto misto</h3><p>Disponibile su prenotazione secondo il programma.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="foto">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">Gallery</div><h2>Volti, notti, tradizione.</h2></div>
+      <p class="section-copy">La Festa è fatta soprattutto di persone. Qui raccogliamo immagini del Comitato, dei Priori, dei bambini, delle serate e dei momenti che si tramandano di anno in anno.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-main reveal"><img src="https://www.festadeigiovani.com/wp-content/uploads/2025/04/IMG_4598-683x1024.jpg" alt="Festa dei Giovani di Cavaglià" loading="lazy"><div class="gallery-caption"><b>Il Comitato</b><span>Una festa costruita dai giovani.</span></div></div>
+      <div class="gallery-side reveal"><img src="https://www.festadeigiovani.com/wp-content/uploads/2025/04/IMG_1513.jpeg" alt="Tradizione della Festa dei Giovani di Cavaglià" loading="lazy"><div class="gallery-caption"><b>Una storia condivisa</b><span>Cavaglià · generazioni che si incontrano.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="storia">
+  <div class="container">
+    <div class="history-wrap reveal">
+      <div><div class="eyebrow">Le nostre radici</div><div class="year">1518</div></div>
+      <div>
+        <h2>Non è solo una data.</h2>
+        <p class="history-text">La Festa dei Giovani di Cavaglià affonda le proprie radici nel 1518. Le origini sono legate alla concessione degli statuti da parte del Duca Carlo III di Savoia, che autorizzò la formazione di una “società o abbazia dei giovani”. A capo di questa organizzazione c’era l’Abate, la figura che oggi conosciamo come Priore.</p>
+        <p class="history-text">Nei secoli la Festa si è evoluta insieme al paese, attraversando cambiamenti storici e culturali senza perdere la propria identità. Investitura del Priore, sfilate, momenti ufficiali, cucina, musica e vita comunitaria continuano a mettere in relazione passato e presente.</p>
+        <div class="history-points">
+          <div class="history-point"><b>1518</b><span>Nasce l’abbazia dei giovani e la figura dell’Abate.</span></div>
+          <div class="history-point"><b>Oggi</b><span>L’Abate è il Priore, affiancato dal Priorato e dal Comitato dei giovani.</span></div>
+          <div class="history-point"><b>500+ anni</b><span>Una tradizione che continua a cambiare senza smettere di appartenere a Cavaglià.</span></div>
         </div>
-        <div class="status-pill"><span></span> In aggiornamento</div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section class="section food" id="cucina">
-      <div class="section-heading reveal"><p class="eyebrow">LA NOSTRA CUCINA</p><h2>Le serate passano anche da tavola.</h2><p>Il servizio è gestito presso il Polivalente, nello stand gastronomico.</p></div>
-      <div class="food-marquee reveal" aria-label="Piatti della Festa">
-        <span>Paella</span><span>Gnocco fritto</span><span>Fritto misto</span><span>Panissa</span><span>Carbonara</span><span>Paella</span><span>Gnocco fritto</span>
+<section class="section light-section" id="albo">
+  <div class="container">
+    <div class="albo-head">
+      <div class="albo-visual reveal" role="img" aria-label="Foto del gruppo della Festa dei Giovani"></div>
+      <div class="albo-copy reveal">
+        <div class="eyebrow" style="color:#8a49df">Albo dei Priori</div>
+        <h2>Ogni anno, nuovi volti.<br>La stessa tradizione.</h2>
+        <p class="body-copy">L’Albo storico raccoglie i Priori che hanno guidato la Festa e, dove disponibili, le fotografie con i bambini e il gruppo dell’edizione. L’archivio storico completo dei nomi parte dal 1847.</p>
+        <div class="albo-placeholder"><strong>Archivio fotografico in preparazione.</strong><br>Stiamo organizzando fotografie e nominativi per trasformare l’Albo in una raccolta navigabile anno per anno, senza perdere la memoria delle edizioni passate.</div>
       </div>
-      <p class="food-note reveal">Il fritto misto è tradizionalmente disponibile su prenotazione durante le serate della Festa.</p>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section class="section archive" id="albo">
-      <div class="section-heading reveal"><p class="eyebrow">ALBO STORICO</p><h2>Ogni anno ha i suoi volti.</h2><p>L'Albo verrà costruito progressivamente con Priore, bambini, fotografie e ricordi di ogni edizione.</p></div>
-      <div class="archive-grid">
-        <article class="archive-card featured reveal"><div><span class="edition">508ª</span><h3>2026</h3><p>Edizione più recente</p></div><button class="archive-btn" type="button" disabled>Foto in arrivo</button></article>
-        <article class="archive-card reveal"><div><span class="edition">507ª</span><h3>2025</h3><p>Archivio da completare</p></div><button class="archive-btn" type="button" disabled>In arrivo</button></article>
-        <article class="archive-card reveal"><div><span class="edition">506ª</span><h3>2024</h3><p>Archivio da completare</p></div><button class="archive-btn" type="button" disabled>In arrivo</button></article>
+<section class="section" id="contatti">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="eyebrow">Info e contatti</div><h2>Ci vediamo a Cavaglià.</h2></div>
+      <p class="section-copy">La Festa si svolge presso il Polivalente, in Via San Giovanni Bosco 5. Per tavoli e serate gastronomiche, prenota entro la sera precedente.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="glow-card map-card reveal">
+        <div class="map-copy"><div class="eyebrow">Dove siamo</div><h3>Il Polivalente</h3><p>Via San Giovanni Bosco, 5<br>Cavaglià (BI)</p><a class="btn btn-primary" href="https://maps.google.com/?q=Via+San+Giovanni+Bosco+5+Cavaglia+BI" target="_blank" rel="noopener">Apri le indicazioni ↗</a></div>
       </div>
-      <div class="archive-more reveal">L'albo completo verrà caricato anno dopo anno.</div>
-    </section>
-
-    <section class="section gallery" id="foto">
-      <div class="section-heading reveal"><p class="eyebrow">GALLERY</p><h2>La Festa, vista da dentro.</h2></div>
-      <div class="gallery-placeholder reveal">
-        <div class="gallery-icon">✦</div><p>Qui inseriremo le vostre foto: serate, cucina, Priori, bambini e momenti storici.</p><small>Le immagini verranno aggiunte senza cambiare la struttura del sito.</small>
+      <div class="glow-card contact-card reveal">
+        <div class="eyebrow">Prenotazioni</div><h3>Chiamaci.</h3>
+        <p class="body-copy">Per informazioni e prenotazioni puoi contattare il Comitato ai numeri di riferimento.</p>
+        <div class="contact-list">
+          <div class="contact-row"><span>Eddie</span><a href="tel:+393518881910">351 888 1910</a></div>
+          <div class="contact-row"><span>Davidino</span><a href="tel:+393275996010">327 599 6010</a></div>
+          <div class="contact-row"><span>Piero</span><a href="tel:+393469711017">346 971 1017</a></div>
+        </div>
+        <div class="socials">
+          <a href="https://www.instagram.com/festadeigiovani_cavaglia/" target="_blank" rel="noopener">Instagram ↗</a>
+          <a href="https://www.facebook.com/Festa-Dei-Giovani-626421994179731/" target="_blank" rel="noopener">Facebook ↗</a>
+        </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+</main>
 
-    <section class="section location" id="contatti">
-      <div class="location-card reveal">
-        <div><p class="eyebrow">DOVE SIAMO</p><h2>Polivalente di Cavaglià</h2><p>Via San Giovanni Bosco, 5<br>Cavaglià (BI)</p><a class="text-link" href="https://www.google.com/maps/search/?api=1&query=Via+San+Giovanni+Bosco+5+Cavaglia+BI" target="_blank" rel="noopener">Apri su Google Maps ↗</a></div>
-        <div class="contact-box"><span>CONTATTI</span><a href="tel:+393518881910">Eddie · 351 888 1910</a><a href="tel:+393275996010">Davidino · 327 599 6010</a><a href="tel:+393469711017">Piero · 346 971 1017</a></div>
-      </div>
-    </section>
-  </main>
+<footer class="footer">
+  <div class="container footer-inner"><span>© Festa dei Giovani · Cavaglià</span><span>Una tradizione dal 1518.</span></div>
+</footer>
 
-  <footer>
-    <a class="brand footer-brand" href="#top"><span class="brand-mark">FDG</span><span class="brand-copy"><strong>Festa dei Giovani</strong><small>Cavaglià · dal 1518</small></span></a>
-    <p>Tradizione, giovani e comunità.</p><p class="copyright">© <span id="year"></span> Festa dei Giovani di Cavaglià</p>
-  </footer>
+<script>
+const menuBtn=document.getElementById('menuBtn');
+const nav=document.getElementById('navLinks');
+menuBtn.addEventListener('click',()=>{
+  nav.classList.toggle('open');
+  document.body.classList.toggle('menu-open',nav.classList.contains('open'));
+  menuBtn.textContent=nav.classList.contains('open')?'✕':'☰';
+});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  nav.classList.remove('open');document.body.classList.remove('menu-open');menuBtn.textContent='☰';
+}));
 
-  <script src="script.js"></script>
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+document.querySelectorAll('.glow-card').forEach(card=>{
+  card.addEventListener('pointermove',e=>{
+    const r=card.getBoundingClientRect();
+    card.style.setProperty('--mx',`${e.clientX-r.left}px`);
+    card.style.setProperty('--my',`${e.clientY-r.top}px`);
+  });
+});
+</script>
 </body>
 </html>
