@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#151a31">
+<title>Gallery 2026 · Festa dei Giovani di Cavaglià</title>
+<meta name="description" content="Gallery fotografica della 508ª Festa dei Giovani di Cavaglià, agosto 2026.">
+<style>
+:root{--bg:#151a31;--paper:#f6f3f7;--pink:#ff4db8;--cyan:#45dfff;--violet:#875cff;--line:rgba(255,255,255,.13);--shadow:0 22px 65px rgba(6,8,25,.3)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:#f8f8fb;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 10% 0%,rgba(135,92,255,.24),transparent 28%),radial-gradient(circle at 90% 5%,rgba(69,223,255,.14),transparent 27%),linear-gradient(180deg,#151a31,#11172b);min-height:100vh}a{color:inherit;text-decoration:none}button{font:inherit}
+.container{width:min(1180px,calc(100% - 30px));margin:auto}.top{position:sticky;top:0;z-index:20;background:rgba(21,26,49,.84);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px}.back{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:900}.brand{font-weight:950}.hero{padding:70px 0 26px}.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:950;color:var(--cyan)}h1{margin:10px 0 18px;font-size:clamp(52px,8vw,96px);line-height:.9;letter-spacing:-.065em}.neon{text-shadow:0 0 12px rgba(255,77,184,.62),0 0 28px rgba(69,223,255,.22)}.lead{max-width:720px;color:#c8c6d1;font-size:17px;line-height:1.7}
+.filters{display:flex;gap:9px;overflow:auto;padding:18px 0 26px;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.filter{white-space:nowrap;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#fff;border-radius:999px;padding:11px 15px;font-weight:900;cursor:pointer;transition:.2s}.filter:hover,.filter.active{background:linear-gradient(135deg,var(--pink),var(--violet));border-color:transparent;transform:translateY(-1px)}
+.gallery{columns:3 280px;column-gap:14px;padding-bottom:70px}.photo{position:relative;width:100%;display:block;margin:0 0 14px;padding:0;border:1px solid rgba(255,255,255,.11);border-radius:22px;overflow:hidden;background:#242843;box-shadow:var(--shadow);cursor:zoom-in;break-inside:avoid;color:#fff}.photo img{width:100%;height:auto;display:block;opacity:0;transition:opacity .35s,transform .55s}.photo.loaded img{opacity:1}.photo:hover img{transform:scale(1.025)}.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 62%,rgba(5,6,15,.75));pointer-events:none}.caption{position:absolute;z-index:2;left:15px;right:15px;bottom:13px;text-align:left;font-size:12px;font-weight:900;letter-spacing:.02em}.loading{display:grid;min-height:220px;place-items:center;color:#aaa7b2;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.photo.loaded .loading{display:none}.photo[hidden]{display:none}
+.lightbox{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(5,7,18,.93);padding:18px}.lightbox.open{display:flex}.lightbox-inner{position:relative;max-width:min(1200px,96vw);max-height:92vh}.lightbox img{display:block;max-width:96vw;max-height:86vh;border-radius:16px;box-shadow:0 30px 90px rgba(0,0,0,.45)}.close{position:absolute;right:10px;top:10px;width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:rgba(18,20,37,.72);color:#fff;font-size:22px;cursor:pointer}.lb-caption{text-align:center;margin-top:10px;color:#dddbe4;font-size:13px}
+.footer{padding:30px 0 42px;border-top:1px solid rgba(255,255,255,.08);color:#9794a1;font-size:13px}.footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+@media(max-width:700px){.container{width:min(100% - 20px,1180px)}.hero{padding-top:50px}.nav{height:64px}.brand{font-size:13px}.gallery{columns:2 150px;column-gap:9px}.photo{margin-bottom:9px;border-radius:15px}.caption{font-size:10px;left:10px;right:10px;bottom:9px}.loading{min-height:150px}}
+@media(max-width:390px){.gallery{columns:1}.caption{font-size:11px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="container nav"><a class="back" href="../#foto">← Torna al sito</a><span class="brand">Festa dei Giovani · Cavaglià</span></div></header>
+<main>
+<section class="hero"><div class="container">
+<div class="eyebrow">508ª · Agosto 2026</div>
+<h1>La Festa,<br><span class="neon">foto per foto.</span></h1>
+<p class="lead">Una selezione dalle serate e dai momenti condivisi della 508ª Festa dei Giovani. Usa i filtri per vedere una sola data oppure scorri tutta la gallery.</p>
+<div class="filters" role="group" aria-label="Filtra la gallery per data">
+<button class="filter active" data-filter="all" type="button">Tutte</button>
+<button class="filter" data-filter="07" type="button">7 agosto</button>
+<button class="filter" data-filter="09" type="button">9 agosto</button>
+<button class="filter" data-filter="10" type="button">10 agosto</button>
+<button class="filter" data-filter="14" type="button">14 agosto</button>
+<button class="filter" data-filter="15" type="button">15 agosto</button>
+</div>
+</div></section>
+<section><div class="container"><div class="gallery">
+<button class="photo" data-date="07" data-caption="7 agosto 2026 · Prima sera" type="button" aria-label="Apri foto: 7 agosto 2026 · Prima sera">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/hero-prima-sera-2026.b64" alt="7 agosto 2026 · Prima sera" loading="lazy">
+  <span class="caption">7 agosto 2026 · Prima sera</span>
+</button>
+
+<button class="photo" data-date="07" data-caption="7 agosto 2026" type="button" aria-label="Apri foto: 7 agosto 2026">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/gallery-2026-07-01.b64" alt="7 agosto 2026" loading="lazy">
+  <span class="caption">7 agosto 2026</span>
+</button>
+
+<button class="photo" data-date="07" data-caption="7 agosto 2026" type="button" aria-label="Apri foto: 7 agosto 2026">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/gallery-2026-07-02.b64" alt="7 agosto 2026" loading="lazy">
+  <span class="caption">7 agosto 2026</span>
+</button>
+
+<button class="photo" data-date="07" data-caption="7 agosto 2026" type="button" aria-label="Apri foto: 7 agosto 2026">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/gallery-2026-07-03.b64" alt="7 agosto 2026" loading="lazy">
+  <span class="caption">7 agosto 2026</span>
+</button>
+
+<button class="photo" data-date="09" data-caption="9 agosto 2026" type="button" aria-label="Apri foto: 9 agosto 2026">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/fdg2026-09-agosto.b64" alt="9 agosto 2026" loading="lazy">
+  <span class="caption">9 agosto 2026</span>
+</button>
+
+<button class="photo" data-date="09" data-caption="9 agosto 2026" type="button" aria-label="Apri foto: 9 agosto 2026">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/gallery-2026-09-01.b64" alt="9 agosto 2026" loading="lazy">
+  <span class="caption">9 agosto 2026</span>
+</button>
+
+<button class="photo" data-date="09" data-caption="9 agosto 2026" type="button" aria-label="Apri foto: 9 agosto 2026">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/gallery-2026-09-02.b64" alt="9 agosto 2026" loading="lazy">
+  <span class="caption">9 agosto 2026</span>
+</button>
+
+<button class="photo" data-date="09" data-caption="9 agosto 2026" type="button" aria-label="Apri foto: 9 agosto 2026">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/gallery-2026-09-03.b64" alt="9 agosto 2026" loading="lazy">
+  <span class="caption">9 agosto 2026</span>
+</button>
+
+<button class="photo" data-date="10" data-caption="10 agosto 2026" type="button" aria-label="Apri foto: 10 agosto 2026">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/fdg2026-10-agosto.b64" alt="10 agosto 2026" loading="lazy">
+  <span class="caption">10 agosto 2026</span>
+</button>
+
+<button class="photo" data-date="10" data-caption="10 agosto 2026" type="button" aria-label="Apri foto: 10 agosto 2026">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/gallery-2026-10-01.b64" alt="10 agosto 2026" loading="lazy">
+  <span class="caption">10 agosto 2026</span>
+</button>
+
+<button class="photo" data-date="10" data-caption="10 agosto 2026" type="button" aria-label="Apri foto: 10 agosto 2026">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/gallery-2026-10-02.b64" alt="10 agosto 2026" loading="lazy">
+  <span class="caption">10 agosto 2026</span>
+</button>
+
+<button class="photo" data-date="10" data-caption="10 agosto 2026" type="button" aria-label="Apri foto: 10 agosto 2026">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/gallery-2026-10-03.b64" alt="10 agosto 2026" loading="lazy">
+  <span class="caption">10 agosto 2026</span>
+</button>
+
+<button class="photo" data-date="14" data-caption="14 agosto 2026 · Zarro Night" type="button" aria-label="Apri foto: 14 agosto 2026 · Zarro Night">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/fdg2026-14-agosto.b64" alt="14 agosto 2026 · Zarro Night" loading="lazy">
+  <span class="caption">14 agosto 2026 · Zarro Night</span>
+</button>
+
+<button class="photo" data-date="14" data-caption="14 agosto 2026 · Zarro Night" type="button" aria-label="Apri foto: 14 agosto 2026 · Zarro Night">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/gallery-2026-14-01.b64" alt="14 agosto 2026 · Zarro Night" loading="lazy">
+  <span class="caption">14 agosto 2026 · Zarro Night</span>
+</button>
+
+<button class="photo" data-date="14" data-caption="14 agosto 2026 · Zarro Night" type="button" aria-label="Apri foto: 14 agosto 2026 · Zarro Night">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/gallery-2026-14-02.b64" alt="14 agosto 2026 · Zarro Night" loading="lazy">
+  <span class="caption">14 agosto 2026 · Zarro Night</span>
+</button>
+
+<button class="photo" data-date="14" data-caption="14 agosto 2026 · Zarro Night" type="button" aria-label="Apri foto: 14 agosto 2026 · Zarro Night">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/gallery-2026-14-03.b64" alt="14 agosto 2026 · Zarro Night" loading="lazy">
+  <span class="caption">14 agosto 2026 · Zarro Night</span>
+</button>
+
+<button class="photo" data-date="15" data-caption="15 agosto 2026 · Skar & Manfre + Linz" type="button" aria-label="Apri foto: 15 agosto 2026 · Skar & Manfre + Linz">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/fdg2026-15-agosto.b64" alt="15 agosto 2026 · Skar & Manfre + Linz" loading="lazy">
+  <span class="caption">15 agosto 2026 · Skar & Manfre + Linz</span>
+</button>
+
+<button class="photo" data-date="15" data-caption="15 agosto 2026 · Skar & Manfre + Linz" type="button" aria-label="Apri foto: 15 agosto 2026 · Skar & Manfre + Linz">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/gallery-2026-15-01.b64" alt="15 agosto 2026 · Skar & Manfre + Linz" loading="lazy">
+  <span class="caption">15 agosto 2026 · Skar & Manfre + Linz</span>
+</button>
+
+<button class="photo" data-date="15" data-caption="15 agosto 2026 · Skar & Manfre + Linz" type="button" aria-label="Apri foto: 15 agosto 2026 · Skar & Manfre + Linz">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/gallery-2026-15-02.b64" alt="15 agosto 2026 · Skar & Manfre + Linz" loading="lazy">
+  <span class="caption">15 agosto 2026 · Skar & Manfre + Linz</span>
+</button>
+
+<button class="photo" data-date="15" data-caption="15 agosto 2026 · Skar & Manfre + Linz" type="button" aria-label="Apri foto: 15 agosto 2026 · Skar & Manfre + Linz">
+  <span class="loading">Foto…</span>
+  <img data-b64-src="../assets/gallery-2026-15-03.b64" alt="15 agosto 2026 · Skar & Manfre + Linz" loading="lazy">
+  <span class="caption">15 agosto 2026 · Skar & Manfre + Linz</span>
+</button></div></div></section>
+</main>
+<div class="lightbox" id="lightbox" aria-hidden="true">
+<div class="lightbox-inner">
+<button class="close" id="closeLb" type="button" aria-label="Chiudi">×</button>
+<img id="lbImg" alt="">
+<div class="lb-caption" id="lbCaption"></div>
+</div>
+</div>
+<footer class="footer"><div class="container footer-inner"><span>© Festa dei Giovani · Cavaglià</span><span><a href="../">Home</a> · Una tradizione dal 1518.</span></div></footer>
+<script>
+const cards=[...document.querySelectorAll('.photo')];
+const load=async img=>{if(img.dataset.loaded)return;img.dataset.loaded='1';try{const r=await fetch(img.dataset.b64Src,{cache:'force-cache'}),b64=(await r.text()).trim();img.src='data:image/jpeg;base64,'+b64;img.addEventListener('load',()=>img.closest('.photo').classList.add('loaded'),{once:true})}catch(e){img.closest('.photo').querySelector('.loading').textContent='Foto non disponibile'}};
+if('IntersectionObserver'in window){const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){load(e.target);obs.unobserve(e.target)}}),{rootMargin:'500px 0px'});document.querySelectorAll('img[data-b64-src]').forEach(i=>obs.observe(i))}else document.querySelectorAll('img[data-b64-src]').forEach(load);
+document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;cards.forEach(c=>c.hidden=f!=='all'&&c.dataset.date!==f);window.scrollTo({top:document.querySelector('.filters').offsetTop-90,behavior:'smooth'})}));
+const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbCaption=document.getElementById('lbCaption'),closeLb=document.getElementById('closeLb');
+cards.forEach(c=>c.addEventListener('click',async()=>{const img=c.querySelector('img');if(!img.src)await load(img);lbImg.src=img.src;lbImg.alt=c.dataset.caption;lbCaption.textContent=c.dataset.caption;lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}));
+const close=()=>{lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.body.style.overflow=''};
+closeLb.addEventListener('click',close);lb.addEventListener('click',e=>{if(e.target===lb)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+</script>
+</body>
+</html>
